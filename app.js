@@ -37,5 +37,23 @@ bot.onText(/\/start/, (msg, match) => {
     const chatId = msg.chat.id
     
 
-    bot.sendMessage(chatId, 'Привет! Если хочешь записаться, нажми кнопку "Продолжить". После записи, в ближайшее время с тобой свяжется ассистент.))')
+    bot.sendMessage(chatId, 
+                    `Привет! Если хочешь записаться, нажми кнопку "Продолжить". 
+                     После записи, в ближайшее время с тобой свяжется ассистент.))`,
+                    { 
+                        reply_markup: {
+                            inline_keyboard: [[
+                                {
+                                    text: 'О нас',
+                                    callback_data: 'aboutUs'
+                                },
+                                {
+                                    text: 'Продолжить',
+                                    callback_data: 'sendInfo'
+                                }
+                            ]]
+                        }
+                    
+                    }
+    )
 })
