@@ -20,7 +20,15 @@ bot.on('message', (msg) => {
 bot.on('callback_query', (callback_query) => {
     const message = callback_query.message
 
-    bot.sendMessage("-393211191", callback_query)
+
+    if(callback_query.callback_data == 'aboutUs'){
+        bot.sendMessage(message.chat.id, 'О нас: бла-бла-бла')
+    }
+
+    if(callback_query.callback_data == 'sendInfo'){
+        bot.sendMessage("-393211191", message.from.username)
+
+    }
 })
 
 
