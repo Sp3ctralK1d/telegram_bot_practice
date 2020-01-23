@@ -19,14 +19,15 @@ bot.on('message', (msg) => {
 
 bot.on('callback_query', (callback_query) => {
     const message = callback_query.message
-
-
-    if(callback_query.callback_data == 'aboutUs'){
+    console.log("Колбек сработал")
+    console.log(callback_query.data)
+    if(callback_query.data == 'aboutUs'){
         bot.sendMessage(message.chat.id, 'О нас: бла-бла-бла')
     }
 
-    if(callback_query.callback_data == 'sendInfo'){
-        bot.sendMessage("-393211191", message.from.username)
+    if(callback_query.data == 'sendInfo'){
+        const orderText = `Кое-кто записался на прием: ${callback_query.from.username}`
+        bot.sendMessage("-393211191", orderText)
 
     }
 })
